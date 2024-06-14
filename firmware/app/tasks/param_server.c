@@ -151,7 +151,7 @@ void vTaskParamServer(void *pvParameters)
         else
         {
             /* xTaskNotifyWait timed out. */
-            sys_log_print_event_from_module(SYS_LOG_WARNING, TASK_PARAM_SERVER_NAME, "Any command request received in the last minute");
+            sys_log_print_event_from_module(SYS_LOG_WARNING, TASK_PARAM_SERVER_NAME, "No command request received in the last minute");
             sys_log_new_line();
         }
     }
