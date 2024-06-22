@@ -182,7 +182,7 @@ int bm_get_full_capacity_ppm(uint32_t *data)
     int err = 0;
     uint8_t rd_buf[2] = {0};
     if (ds277Xg_read_data(&battery_monitor_config, DS277XG_FULL_REGISTER_MSB, rd_buf, 2) != 0) { err += -1; }
-    *data = ((uint32_t)(((rd_buf[0] << 8) + rd_buf[1]) >> 1) * 61U);
+    *data = (((((uint16_t)rd_buf[0] << 8) + rd_buf[1]) >> 1) * 61UL);
     return err;
 }
 
@@ -191,7 +191,7 @@ int bm_get_active_empty_capacity_ppm(uint32_t *data)
     int err = 0;
     uint8_t rd_buf[2] = {0};
     if (ds277Xg_read_data(&battery_monitor_config, DS277XG_ACTIVE_EMPTY_REGISTER_MSB, rd_buf, 2) != 0) { err += -1; }
-    *data = ((uint32_t)(((rd_buf[0] << 8) + rd_buf[1]) >> 1) * 61U);
+    *data = (((((uint16_t)rd_buf[0] << 8) + rd_buf[1]) >> 3) * 61UL);
     return err;
 }
 
@@ -200,6 +200,6 @@ int bm_get_standby_empty_capacity_ppm(uint32_t *data)
     int err = 0;
     uint8_t rd_buf[2] = {0};
     if (ds277Xg_read_data(&battery_monitor_config, DS277XG_STANDBY_EMPTY_REGISTER_MSB, rd_buf, 2) != 0) { err += -1; }
-    *data = ((uint32_t)(((rd_buf[0] << 8) + rd_buf[1]) >> 1) * 61U);
+    *data = (((((uint16_t)rd_buf[0] << 8) + rd_buf[1]) >> 3) * 61UL);
     return err;
 }
