@@ -1,0 +1,9 @@
+[submodule "hardware"]
+	path = hardware
+	url = git@github.com:ramonborba/eps2-hardware.git
+[submodule "firmware"]
+	path = firmware
+	url = git@github.com:ramonborba/eps2-firmware.git
+[submodule "doc"]
+	path = doc
+	url = git@github.com:ramonborba/eps2-doc.git
