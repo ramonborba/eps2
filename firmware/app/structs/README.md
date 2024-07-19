@@ -1,1 +1,0 @@
-#EPS2 data structure
